@@ -107,8 +107,8 @@ public class TutorialStr {
         for (int i = 0; i < blank; i++) {
             player.sendMessage(EMPTY_LINE);
         }
-        for (int i = 0; i < messages.length; i++) {
-            player.sendMessage(PREFIX + messages[i]);
+        for (String message : messages) {
+            player.sendMessage(PREFIX + message);
         }
         for (int i = 0; i < (8 - blank - messages.length); i++) {
             player.sendMessage(EMPTY_LINE);
@@ -195,15 +195,11 @@ public class TutorialStr {
             player.setFlying(false);
             //player.setGameMode(GameMode.SURVIVAL);
             task.cancel();
-            try {
-                Permission per = Bukkit.getServicesManager().getRegistration(Permission.class).getProvider();
-                per.playerRemoveGroup(player, per.getPrimaryGroup(player));
-                // per.playerAddGroup("world", player, "user");
-                for (World world : Bukkit.getWorlds()) {
-                    per.playerAddGroup(world.getName(), player, "user");
-                }
-            } catch (UnsupportedOperationException e) {
-                System.out.println("[AlkaTutorial] 펄미션이 없습니다.");
+            Permission per = Bukkit.getServicesManager().getRegistration(Permission.class).getProvider();
+            per.playerRemoveGroup(player, per.getPrimaryGroup(player));
+            // per.playerAddGroup("world", player, "user");
+            for (World world : Bukkit.getWorlds()) {
+                per.playerAddGroup(world.getName(), player, "user");
             }
         }
     }
