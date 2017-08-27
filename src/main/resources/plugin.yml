@@ -1,6 +1,6 @@
 name: AlkaTutorial
 main: net.alkaonline.alkatutorial.AlkaTutorial
-version: 1.0.5
+version: 1.0.6
 depend: [Vault]
 permissions:
   tutorial.complete:
