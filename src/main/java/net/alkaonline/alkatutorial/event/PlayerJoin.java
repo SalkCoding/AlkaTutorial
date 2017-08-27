@@ -27,11 +27,11 @@ public class PlayerJoin implements Listener,PluginInterface {
 		FIRSTLOC.setYaw(130);
 		FIRSTLOC.setPitch(23);*/
 	}
-	
+
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event){
-    	//BlockTutorial blocktutorial = new BlockTutorial(event.getPlayer(), Spectate.randomPlayerLocation());
-    	//blocktutorial.spawnItemOnBlock(3, new ItemStack(Material.DIAMOND));
+		//BlockTutorial blocktutorial = new BlockTutorial(event.getPlayer(), Spectate.randomPlayerLocation());
+		//blocktutorial.spawnItemOnBlock(3, new ItemStack(Material.DIAMOND));
 		if(!event.getPlayer().hasPermission(AlkaPermission)){
 			TutorialStr ts = new TutorialStr(event.getPlayer());
 			ts.start();
@@ -42,24 +42,24 @@ public class PlayerJoin implements Listener,PluginInterface {
 			acceptPermissions(event.getPlayer());
 		}
 	}
-	
+
 	public static void acceptPermissions(Player player){
-    	try{
-    		Permission per = null;
-    		RegisteredServiceProvider<Permission> permissionProvider = Main.getInstance().getServer().getServicesManager().getRegistration(Permission.class);
-        	if (permissionProvider != null) {
-        		per = (Permission)permissionProvider.getProvider();
-        	}
-        	per.playerRemoveGroup(player, per.getPrimaryGroup(player));
-        	//per.playerAddGroup("world", player, "user");
-        	for(World world:Bukkit.getWorlds()){
-        		String worldname = world.getWorldFolder().getName();
-        		per.playerAddGroup(worldname, player, "user");
-        	}
-    	}
-    	catch(UnsupportedOperationException e){
-    		System.out.println("[AlkaTutorial] ∆ﬁπÃº«¿Ã æ¯Ω¿¥œ¥Ÿ.");
-    	}
+		try{
+			Permission per = null;
+			RegisteredServiceProvider<Permission> permissionProvider = Main.getInstance().getServer().getServicesManager().getRegistration(Permission.class);
+			if (permissionProvider != null) {
+				per = (Permission)permissionProvider.getProvider();
+			}
+			per.playerRemoveGroup(player, per.getPrimaryGroup(player));
+			//per.playerAddGroup("world", player, "user");
+			for(World world:Bukkit.getWorlds()){
+				String worldname = world.getWorldFolder().getName();
+				per.playerAddGroup(worldname, player, "user");
+			}
+		}
+		catch(UnsupportedOperationException e){
+			System.out.println("[AlkaTutorial] ÌéÑÎØ∏ÏÖòÏù¥ ÏóÜÏäµÎãàÎã§.");
+		}
 	}
-	
+
 }
