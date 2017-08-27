@@ -2,19 +2,20 @@ package net.alkaonline.alkatutorial.tutorialstr;
 
 public class Page {
 
-	private String[] str;
-	private int firstblank;
+    private final String[] str;
+    private final int firstBlank;
 
-	public Page(int first, String... messages) {
-		str = messages;
-		firstblank = first;
-	}
+    public Page(int first, String... messages) {
+        str = messages;
+        firstBlank = first;
+    }
 
-	public String[] getString() {
-		return str;
-	}
+    public String[] getString() {
+        return str;
+    }
 
-	public int getFirst() {
-		return firstblank;
-	}
+    public int getFirstBlank() {
+        return firstBlank;
+    }
+
 }

@@ -1,6 +1,7 @@
 name: AlkaTutorial
-main: com.salk_coding.tutorial.Main
+main: net.alkaonline.alkatutorial.AlkaTutorial
 version: 1.0.5
+depend: [Vault]
 permissions:
   tutorial.complete:
     default: false
