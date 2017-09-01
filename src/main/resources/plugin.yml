@@ -1,0 +1,8 @@
+name: AlkaTutorial
+main: net.alkaonline.alkatutorial.AlkaTutorial
+version: 1.0.7-SNAPSHOT
+depend: [Vault]
+permissions:
+  tutorial.complete:
+    default: false
+    description: tutorial complete
